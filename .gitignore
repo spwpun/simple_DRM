@@ -1,6 +1,6 @@
 *.sln
 *.vcxproj
 *.filters
-*.users
+*.user
 .vs
 DRM_system/Debug

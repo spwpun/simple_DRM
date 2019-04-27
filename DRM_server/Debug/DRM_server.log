@@ -1,12 +1,35 @@
 ﻿  main.cpp
-d:\信息安全综合设计实验\项目测试\drm_system\drm_server\main.cpp(71): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+d:\信息安全综合设计实验\项目测试\drm_system\drm_server\main.cpp(76): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\stdio.h(208): note: 参见“fopen”的声明
-d:\信息安全综合设计实验\项目测试\drm_system\drm_server\main.cpp(77): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+d:\信息安全综合设计实验\项目测试\drm_system\drm_server\main.cpp(82): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\stdio.h(208): note: 参见“fopen”的声明
-d:\信息安全综合设计实验\项目测试\drm_system\drm_server\main.cpp(63): warning C4101: “ch”: 未引用的局部变量
-d:\信息安全综合设计实验\项目测试\drm_system\drm_server\main.cpp(119): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+d:\信息安全综合设计实验\项目测试\drm_system\drm_server\main.cpp(68): warning C4101: “ch”: 未引用的局部变量
+d:\信息安全综合设计实验\项目测试\drm_system\drm_server\main.cpp(124): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\stdio.h(208): note: 参见“fopen”的声明
-d:\信息安全综合设计实验\项目测试\drm_system\drm_server\main.cpp(125): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+d:\信息安全综合设计实验\项目测试\drm_system\drm_server\main.cpp(130): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\stdio.h(208): note: 参见“fopen”的声明
-d:\信息安全综合设计实验\项目测试\drm_system\drm_server\main.cpp(113): warning C4101: “ch”: 未引用的局部变量
+d:\信息安全综合设计实验\项目测试\drm_system\drm_server\main.cpp(118): warning C4101: “ch”: 未引用的局部变量
+  sm3.cpp
+  sm4.cpp
+  正在生成代码...
+  sm2.c
+d:\信息安全综合设计实验\项目测试\drm_system\drm_server\sm2.c(69): warning C4244: “函数”: 从“time_t”转换到“unsigned int”，可能丢失数据
+d:\信息安全综合设计实验\项目测试\drm_system\drm_server\sm2.c(191): warning C4244: “函数”: 从“time_t”转换到“unsigned int”，可能丢失数据
+miracl.lib(mralloc.obj) : warning LNK4099: 未找到 PDB“StaticLib4.pdb”(使用“miracl.lib(mralloc.obj)”或在“D:\信息安全综合设计实验\项目测试\DRM_system\Debug\StaticLib4.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+miracl.lib(mrarth0.obj) : warning LNK4099: 未找到 PDB“StaticLib4.pdb”(使用“miracl.lib(mrarth0.obj)”或在“D:\信息安全综合设计实验\项目测试\DRM_system\Debug\StaticLib4.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+miracl.lib(mrarth1.obj) : warning LNK4099: 未找到 PDB“StaticLib4.pdb”(使用“miracl.lib(mrarth1.obj)”或在“D:\信息安全综合设计实验\项目测试\DRM_system\Debug\StaticLib4.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+miracl.lib(mrarth2.obj) : warning LNK4099: 未找到 PDB“StaticLib4.pdb”(使用“miracl.lib(mrarth2.obj)”或在“D:\信息安全综合设计实验\项目测试\DRM_system\Debug\StaticLib4.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+miracl.lib(mrarth3.obj) : warning LNK4099: 未找到 PDB“StaticLib4.pdb”(使用“miracl.lib(mrarth3.obj)”或在“D:\信息安全综合设计实验\项目测试\DRM_system\Debug\StaticLib4.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+miracl.lib(mrbits.obj) : warning LNK4099: 未找到 PDB“StaticLib4.pdb”(使用“miracl.lib(mrbits.obj)”或在“D:\信息安全综合设计实验\项目测试\DRM_system\Debug\StaticLib4.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+miracl.lib(mrcore.obj) : warning LNK4099: 未找到 PDB“StaticLib4.pdb”(使用“miracl.lib(mrcore.obj)”或在“D:\信息安全综合设计实验\项目测试\DRM_system\Debug\StaticLib4.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+miracl.lib(mrcurve.obj) : warning LNK4099: 未找到 PDB“StaticLib4.pdb”(使用“miracl.lib(mrcurve.obj)”或在“D:\信息安全综合设计实验\项目测试\DRM_system\Debug\StaticLib4.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+miracl.lib(mrio1.obj) : warning LNK4099: 未找到 PDB“StaticLib4.pdb”(使用“miracl.lib(mrio1.obj)”或在“D:\信息安全综合设计实验\项目测试\DRM_system\Debug\StaticLib4.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+miracl.lib(mrio2.obj) : warning LNK4099: 未找到 PDB“StaticLib4.pdb”(使用“miracl.lib(mrio2.obj)”或在“D:\信息安全综合设计实验\项目测试\DRM_system\Debug\StaticLib4.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+miracl.lib(mrjack.obj) : warning LNK4099: 未找到 PDB“StaticLib4.pdb”(使用“miracl.lib(mrjack.obj)”或在“D:\信息安全综合设计实验\项目测试\DRM_system\Debug\StaticLib4.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+miracl.lib(mrlucas.obj) : warning LNK4099: 未找到 PDB“StaticLib4.pdb”(使用“miracl.lib(mrlucas.obj)”或在“D:\信息安全综合设计实验\项目测试\DRM_system\Debug\StaticLib4.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+miracl.lib(mrmonty.obj) : warning LNK4099: 未找到 PDB“StaticLib4.pdb”(使用“miracl.lib(mrmonty.obj)”或在“D:\信息安全综合设计实验\项目测试\DRM_system\Debug\StaticLib4.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+miracl.lib(mrmuldv.obj) : warning LNK4099: 未找到 PDB“StaticLib4.pdb”(使用“miracl.lib(mrmuldv.obj)”或在“D:\信息安全综合设计实验\项目测试\DRM_system\Debug\StaticLib4.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+miracl.lib(mrrand.obj) : warning LNK4099: 未找到 PDB“StaticLib4.pdb”(使用“miracl.lib(mrrand.obj)”或在“D:\信息安全综合设计实验\项目测试\DRM_system\Debug\StaticLib4.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+miracl.lib(mrsroot.obj) : warning LNK4099: 未找到 PDB“StaticLib4.pdb”(使用“miracl.lib(mrsroot.obj)”或在“D:\信息安全综合设计实验\项目测试\DRM_system\Debug\StaticLib4.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+miracl.lib(mrxgcd.obj) : warning LNK4099: 未找到 PDB“StaticLib4.pdb”(使用“miracl.lib(mrxgcd.obj)”或在“D:\信息安全综合设计实验\项目测试\DRM_system\Debug\StaticLib4.pdb”中寻找)；正在链接对象，如同没有调试信息一样
   DRM_server.vcxproj -> D:\信息安全综合设计实验\项目测试\DRM_system\Debug\DRM_server.exe

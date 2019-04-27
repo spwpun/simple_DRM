@@ -46,6 +46,11 @@ int main ()
 	printf ("文件加密测试：\n");
 	flag = encryptfile ("test.txt", key, "encry.erc");
 	if (flag)	printf ("文件加密成功！\n");
+	else
+	{
+		printf ("文件加密失败！\n");
+		return -1;
+	}    
 	flag = decryptfile ("encry.erc", key, "plain.txt");
 	if (flag)	printf ("文件解密成功！\n");
 

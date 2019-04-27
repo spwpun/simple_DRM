@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include "getinfo.h"
 #include "sm3.h"
+#include "md5.h"
 #include <windows.h>
 
 //º¯ÊıÇ°ÏòÉùÃ÷
@@ -10,8 +11,16 @@ unsigned char *GenerateSerial (unsigned char *output);	//µ÷ÓÃ×Ô¶¨Òåº¯Êı²úÉúĞòÁĞº
 int main ()
 {
 	unsigned char digest[32] = "";
+	unsigned char key[16] = "";
+	
 	GenerateSerial (digest);
-
+	md5_calc (digest, 32, key);
+	printf ("\nAfter md5 hashing:\n");
+	for (int i = 0; i < 16; i++)
+	{
+		printf ("%02X", key[i]);
+	}
+	printf("\n");
 	system ("pause");
 }
 

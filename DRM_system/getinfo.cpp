@@ -69,9 +69,14 @@ char *GetCPUInfo (char *output)
 	printf ("处理器数量: %u\n", siSysInfo.dwNumberOfProcessors);
 	printf ("页数的大小: %u\n", siSysInfo.dwPageSize);
 	printf ("处理器类型: %s\n", pType);
-	system ("wmic cpu get processorid > cpuid.txt");
 	printf ("Cpuid has been stored into cpuid.txt!\n");*/
+	system ("wmic cpu get processorid > cpuid.txt");
 	fp = fopen ("cpuid.txt", "rb");
+	if (fp == NULL)
+	{
+		printf ("文件打开失败，错误码:%d\n.", GetLastError ());
+		return FALSE;
+	}
 	ch[0] = fgetc (fp);
 	ch[1] = '\0';
 	sCpuid[0] = '\0';
@@ -85,7 +90,7 @@ char *GetCPUInfo (char *output)
 		i++;
 	}
 	sCpuid[16] = '\0';
-	puts (sCpuid);	//输出CPUID测试时使用
+	//puts (sCpuid);	//输出CPUID测试时使用
 	fclose (fp);
 	strcpy (cpuinfo, pProcessor);
 	strcat (cpuinfo, pType);

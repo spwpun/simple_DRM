@@ -12,60 +12,85 @@
 char *GetCPUInfo (char *output)
 {
 	SYSTEM_INFO siSysInfo;
-	GetSystemInfo (&siSysInfo);
+	FILE *fp;
 	const char *pProcessor = NULL;
 	const char *pType = NULL;
+	char sCpuid[17];
 	char cpuinfo[60];
-	switch (siSysInfo.dwOemId)
+	char ch[2];
+	int i = 0;
+
+	GetSystemInfo (&siSysInfo);
+	//原来的doemID在官方文档里面不推荐使用，只是一个保留字段，为了兼容性
+	switch (siSysInfo.wProcessorArchitecture)
 	{
-	case PROCESSOR_ARCHITECTURE_AMD64:
-		pProcessor = "PROCESSOR_ARCHITECTURE_AMD64";
-		break;
-	case PROCESSOR_ARCHITECTURE_ARM64:
-		pProcessor = "PROCESSOR_ARCHITECTURE_ARM64";
-		break;
-	case PROCESSOR_ARCHITECTURE_INTEL:
-		pProcessor = "PROCESSOR_ARCHITECTURE_INTEL";
-		break;
-	case PROCESSOR_ARCHITECTURE_MIPS:
-		pProcessor = "PROCESSOR_ARCHITECTURE_MIPS";
-		break;
-	default:
-		pProcessor = "PROCESSOR_ARCHITECTURE_OTHER";
-		break;
+		case PROCESSOR_ARCHITECTURE_AMD64:
+			pProcessor = "PROCESSOR_ARCHITECTURE_AMD64";
+			break;
+		case PROCESSOR_ARCHITECTURE_ARM64:
+			pProcessor = "PROCESSOR_ARCHITECTURE_ARM64";
+			break;
+		case PROCESSOR_ARCHITECTURE_INTEL:
+			pProcessor = "PROCESSOR_ARCHITECTURE_INTEL";
+			break;
+		case PROCESSOR_ARCHITECTURE_MIPS:
+			pProcessor = "PROCESSOR_ARCHITECTURE_MIPS";
+			break;
+		default:
+			pProcessor = "PROCESSOR_ARCHITECTURE_OTHER";
+			break;
 	}
 	switch (siSysInfo.dwProcessorType)
 	{
-	case PROCESSOR_INTEL_386:
-		pType = "INTEL_386";
-		break;
-	case PROCESSOR_INTEL_486:
-		pType = "INTEL_486";
-		break;
-	case PROCESSOR_INTEL_PENTIUM:
-		pType = "INTEL_PENTIUM";
-		break;
-	case PROCESSOR_INTEL_IA64:
-		pType = "INTEL_IA64";
-		break;
-	case PROCESSOR_AMD_X8664:
-		pType = "AMD_X8664";
-		break;
-	case PROCESSOR_MIPS_R4000:
-		pType = "MIPS_R4000";
-		break;
-	default:
-		pType = "UNKNOWN";
-		break;
+		case PROCESSOR_INTEL_386:
+			pType = "INTEL_386";
+			break;
+		case PROCESSOR_INTEL_486:
+			pType = "INTEL_486";
+			break;
+		case PROCESSOR_INTEL_PENTIUM:
+			pType = "INTEL_PENTIUM";
+			break;
+		case PROCESSOR_INTEL_IA64:
+			pType = "INTEL_IA64";
+			break;
+		case PROCESSOR_AMD_X8664:
+			pType = "AMD_X8664";
+			break;
+		case PROCESSOR_MIPS_R4000:
+			pType = "MIPS_R4000";
+			break;
+		default:
+			pType = "UNKNOWN";
+			break;
 	}
 	//测试时取消注释
 	/*printf ("设备生产商: %s\n", pProcessor);
 	printf ("处理器数量: %u\n", siSysInfo.dwNumberOfProcessors);
 	printf ("页数的大小: %u\n", siSysInfo.dwPageSize);
-	printf ("处理器类型: %s\n", pType);*/
+	printf ("处理器类型: %s\n", pType);
+	system ("wmic cpu get processorid > cpuid.txt");
+	printf ("Cpuid has been stored into cpuid.txt!\n");*/
+	fp = fopen ("cpuid.txt", "rb");
+	ch[0] = fgetc (fp);
+	ch[1] = '\0';
+	sCpuid[0] = '\0';
+	while (!feof (fp))
+	{
+		if (i >= 0x2A && i <= 0x48 && i % 2 == 0)
+		{
+			strcat (sCpuid, ch);
+		}
+		ch[0] = fgetc (fp);
+		i++;
+	}
+	sCpuid[16] = '\0';
+	puts (sCpuid);	//输出CPUID测试时使用
+	fclose (fp);
 	strcpy (cpuinfo, pProcessor);
 	strcat (cpuinfo, pType);
-	/*printf ("\n处理器信息：%s\n", cpuinfo);*/
+	strcat (cpuinfo, sCpuid);
+	//printf ("\n处理器信息：%s\n", cpuinfo);		测试输出信息
 	strcpy (output, cpuinfo);
 
 	return output;

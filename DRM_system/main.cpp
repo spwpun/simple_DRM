@@ -4,7 +4,7 @@
 #include <windows.h>
 
 //函数前向声明
-unsigned char *GenerateSerial (unsigned char *output);
+unsigned char *GenerateSerial (unsigned char *output);	//调用自定义函数产生序列号
 
 //主函数开始
 int main ()

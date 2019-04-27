@@ -1,6 +1,7 @@
 #include <string.h>
 #include <stdio.h>
 #include "sm4.h"
+#include "sm2.h"
 #define UNICODE
 #define _UNICODE
 
@@ -43,10 +44,13 @@ int main ()
 		printf ("%02X ", output[i]);
 	printf ("\n");
 	printf ("文件加密测试：\n");
-	flag = encryptfile ("test.pdf", key, "encry_pdf.erc");
+	flag = encryptfile ("test.txt", key, "encry.erc");
 	if (flag)	printf ("文件加密成功！\n");
-	flag = decryptfile ("encry_pdf.erc", key, "decry_pdf.pdf");
+	flag = decryptfile ("encry.erc", key, "plain.txt");
 	if (flag)	printf ("文件解密成功！\n");
+
+	//sm2测试
+	main_test_sm2 ();
 	system ("pause");
 	return 0;
 }
@@ -55,12 +59,14 @@ BOOL encryptfile (const char *in_fname, unsigned char *key, const char *out_fnam
 {
 	FILE *fp1, *fp2;
 	int i = 0;
+	int length = 0;
 	unsigned char ch;
 	//16个字节为一组，先试试，最后还是得分组加密
-	unsigned char input[16];
+	unsigned char input[17];
 	unsigned char output[16];
 	sm4_context ctx;//sm4上下文
 
+	input[16] = '\0';
 	sm4_setkey_enc (&ctx, key);//设置key
 	fp1 = fopen (in_fname, "rb");
 	if (fp1 == NULL)
@@ -83,7 +89,9 @@ BOOL encryptfile (const char *in_fname, unsigned char *key, const char *out_fnam
 			if (feof (fp1)) break;	//如果读到文件尾则跳出循环
 			input[i] = fgetc (fp1);
 		}
-		sm4_crypt_ecb (&ctx, SM4_ENCRYPT, 16, input, output);	//加密，输出到output数组,参数2为定义的宏，标志是加密还是解密
+		//加密函数的长度参数可能最后一组不是16
+		length = strlen ((const char *)input);
+		sm4_crypt_ecb (&ctx, SM4_ENCRYPT, length, input, output);	//加密，输出到output数组,参数2为定义的宏，标志是加密还是解密
 		for (i = 0; i < 16; i++)			
 		{
 			putc (output[i], fp2);		//将加密结果写入到文件中
@@ -122,14 +130,14 @@ BOOL decryptfile (const char *in_fname, unsigned char *key, const char *out_fnam
 	}
 	while (1)
 	{
-		/*每次读入16个字节，使用SM4对称加密算法进行加密*/
+		/*每次读入16个字节，使用SM4对称加密算法进行解密密*/
 		for (i = 0; i < 16; i++)
 		{
 			if (feof (fp1)) break;	//如果读到文件尾则跳出循环
 			input[i] = fgetc (fp1);
 		}
-		if (feof (fp1)) break;
-		sm4_crypt_ecb (&ctx, SM4_DECRYPT, 1, input, output);
+		if (feof (fp1)) break;	//跳出while循环
+		sm4_crypt_ecb (&ctx, SM4_DECRYPT, 16, input, output);
 		for (i = 0; i < 16; i++)			//将解密结果写入到文件中
 		{
 			putc (output[i], fp2);

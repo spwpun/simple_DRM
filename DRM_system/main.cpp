@@ -14,6 +14,14 @@ int main ()
 	unsigned char key[16] = "";
 	
 	GenerateSerial (digest);
+	printf ("\n该电脑序列号如下：\n");
+	for (int i = 0; i < 32; i++)
+	{
+		if ((i + 1) % 4 == 0)
+			printf ("%02X ", digest[i]);
+		else
+			printf ("%02X", digest[i]);
+	}
 	md5_calc (digest, 32, key);
 	printf ("\nAfter md5 hashing:\n");
 	for (int i = 0; i < 16; i++)
@@ -37,14 +45,6 @@ unsigned char *GenerateSerial (unsigned char *output)
 	strcat (hdSerial, macAdress);
 	unsigned char digest[32];
 	SM3Calc ((const unsigned char *)hdSerial, strlen (hdSerial), digest);
-	printf ("\n该电脑序列号如下：\n");
-	for (int i = 0; i < 32; i++)
-	{
-		if ((i + 1) % 4 == 0)
-			printf ("%02X ", digest[i]);
-		else
-			printf ("%02X", digest[i]);
-	}
-	output = digest;
+	strcpy ((char *)output, (const char *)digest);
 	return output;
 }

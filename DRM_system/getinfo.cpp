@@ -65,11 +65,11 @@ char *GetCPUInfo (char *output)
 			break;
 	}
 	//测试时取消注释
-	/*printf ("设备生产商: %s\n", pProcessor);
+	printf ("\n设备生产商: %s\n", pProcessor);
 	printf ("处理器数量: %u\n", siSysInfo.dwNumberOfProcessors);
 	printf ("页数的大小: %u\n", siSysInfo.dwPageSize);
 	printf ("处理器类型: %s\n", pType);
-	printf ("Cpuid has been stored into cpuid.txt!\n");*/
+	printf ("Cpuid has been stored into cpuid.txt!\n");
 	system ("wmic cpu get processorid > cpuid.txt");
 	fp = fopen ("cpuid.txt", "rb");
 	if (fp == NULL)
@@ -89,13 +89,13 @@ char *GetCPUInfo (char *output)
 		ch[0] = fgetc (fp);
 		i++;
 	}
-	sCpuid[16] = '\0';
-	//puts (sCpuid);	//输出CPUID测试时使用
+	sCpuid[16] = '\0';	//结束符
+	puts (sCpuid);	//输出CPUID测试时使用
 	fclose (fp);
 	strcpy (cpuinfo, pProcessor);
 	strcat (cpuinfo, pType);
 	strcat (cpuinfo, sCpuid);
-	//printf ("\n处理器信息：%s\n", cpuinfo);		测试输出信息
+	printf ("\n处理器信息：%s\n", cpuinfo);		//测试输出信息
 	strcpy (output, cpuinfo);
 
 	return output;
@@ -140,18 +140,20 @@ char *GetAdapterInfo (char *macAdress)
 	while (pAdapter)
 	{
 		//测试时请取消下面两行的注释
-		//printf ("\n网络适配器名：%s\n", pAdapter->AdapterName);
-		//printf ("网络适配器描述：%s\n", pAdapter->Description);
-		//过滤掉虚拟网卡的计算
-		if (strncmp (pAdapter->Description, "VMware", 6) == 0 || strncmp (pAdapter->Description, "VirtualBox", 10) == 0)
+		printf ("\n网络适配器名：%s\n", pAdapter->AdapterName);
+		printf ("网络适配器描述：%s\n", pAdapter->Description);
+		//过滤掉其他可变网卡的计算
+		//strncmp (pAdapter->Description, "VMware", 6) == 0 
+		//strncmp (pAdapter->Description, "VirtualBox", 10) == 0 
+		if (strncmp(pAdapter->Description, "Realtek", 7) != 0)
 		{
 			//测试时取消注释
-			//printf ("虚拟网卡，不计算！\n");
+			printf ("易改变MAC的网卡，不计算！\n");
 			pAdapter = pAdapter->Next;
 			continue;
 		}
 		//测试时取消注释
-		//printf ("MAC地址：");
+		printf ("MAC地址：");
 		for (int i = 0; i < (int)pAdapter->AddressLength; i++)
 		{
 			//将字节转换为16进制字符串存入temp中
@@ -159,7 +161,7 @@ char *GetAdapterInfo (char *macAdress)
 			if (i == (pAdapter->AddressLength - 1))
 			{
 				//测试时取消注释
-				//printf ("%02X\n", (int)pAdapter->Address[i]);
+				printf ("%02X\n", (int)pAdapter->Address[i]);
 				EthernetMac[adapterNum + 3 * i] = temp[0];
 				EthernetMac[adapterNum + 3 * i + 1] = temp[1];
 				EthernetMac[adapterNum + 3 * i + 2] = ';';
@@ -170,7 +172,7 @@ char *GetAdapterInfo (char *macAdress)
 				EthernetMac[adapterNum + 3 * i + 1] = temp[1];
 				EthernetMac[adapterNum + 3 * i + 2] = ':';
 				//测试时取消注释
-				//printf ("%.2X:", (int)pAdapter->Address[i]);
+				printf ("%.2X:", (int)pAdapter->Address[i]);
 			}
 		}	
 		adapterNum = adapterNum + 18;
@@ -178,10 +180,10 @@ char *GetAdapterInfo (char *macAdress)
 	}
 	EthernetMac[adapterNum] = '\0';
 	//测试时取消注释
-	/*for (int j = 0; EthernetMac[j] != '\0'; j++)
+	for (int j = 0; EthernetMac[j] != '\0'; j++)
 	{
 		printf ("%c", EthernetMac[j]);
-	}*/
+	}
 	strcpy (macAdress, EthernetMac);
 
 	return macAdress;
@@ -375,10 +377,10 @@ char *GetAllHDSerial (char *output)
 	{
 		ULONG ulLen = GetHardDriveSerialNumber (szBuff, sizeof (szBuff), nDriveNum);
 		//测试时取消注释
-		/*if (ulLen > 0)
+		if (ulLen > 0)
 		{
 			_tprintf (TEXT ("\n第%d块硬盘的序列号为：%hs\n"), nDriveNum + 1, szBuff);
-		}*/
+		}
 	}
 	strcpy (output, szBuff);
 

@@ -19,6 +19,8 @@ typedef struct Rights_Claimed
 	unsigned char Rights_info[64];	//ÉùÃ÷Àý£ºCopyright by spwpun 2019-05-15
 };
 
+/*------------------Function Declared-----------------------*/
+
 
 
 #endif // !__FILEINFO_HEADER__

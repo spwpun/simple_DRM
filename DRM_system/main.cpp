@@ -2,7 +2,6 @@
 #include "getinfo.h"
 #include "sm3.h"
 #include "md5.h"
-#include <windows.h>
 
 //函数前向声明
 unsigned char *GenerateSerial (unsigned char *output);	//调用自定义函数产生序列号

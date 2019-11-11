@@ -19,19 +19,20 @@ void my_fputs (char *Buffer, FILE *fp);
 void my_fgets (char *Buffer, FILE *fp);
 int getNumofObj (FILE *fp);
 char *getOffset (char *readline, int value);
-unsigned char*ConvertHardwareId (char *hex_string);
+void ConvertHardwareId (char *hex_string, unsigned char * hardware_id);
 int tolower (int c);
 int htoi (char *s);
 
 
 int main ()
 {
-	unsigned char key[16] = { 0x01, 0x23, 0x45, 0x67, 0x89, 0xab, 0xcd, 0xef, 0xfe, 0xdc, 0xba, 0x98, 0x76, 0x54, 0x32, 0x10 };
+	unsigned char key[16] = { 0x05, 0xf1, 0x1a, 0xbe, 0x0a, 0x02, 0xe6, 0xd6, 0x5b, 0x34, 0x70, 0x61, 0x74, 0x5f, 0x18, 0xbf };
 	unsigned char input[16] = { 0x01, 0x23, 0x45, 0x67, 0x89, 0xab, 0xcd, 0xef, 0xfe, 0xdc, 0xba, 0x98, 0x76, 0x54, 0x32, 0x10 };
 	unsigned char output[16];
 	sm4_context ctx;
 	unsigned long i;
 	bool flag = FALSE;
+	unsigned char hardware_id[33];
 
 	printf ("加密密钥：");
 	for (i = 0; i < 16; i++)
@@ -74,7 +75,8 @@ int main ()
 	strncpy ((char *)pdf_file_info.user, "Leeping", 10); //改为10自动填充'\0'
 	strncpy ((char *)pdf_file_info.creator, "Spwpun", 10);
 	char hardware[] = "254CC182224D74ED96E2482BC63DA1556E5A5333B62F8F3EE07F59E287CEE992";
-	unsigned char *hardware_id = ConvertHardwareId (hardware);
+	memset (hardware_id, 0, 33);
+	ConvertHardwareId (hardware, hardware_id);
 	strncpy ((char *)pdf_file_info.user_hardware_id, (const char *)hardware_id, 32);
 	add_file_struct_info_to_file ("encry_pdf.erc", pdf_file_info, "pkg_pdf.pkg");
 
@@ -192,6 +194,7 @@ BOOL decryptfile (const char *in_fname, unsigned char *key, const char *out_fnam
 	return TRUE;
 }
 
+//嵌入版权信息
 BOOL embed_info_in_pdf (const char infilename[20], const char *info, const char outfilename[20])
 {
 	FILE *infile, *outfile;
@@ -257,6 +260,7 @@ BOOL embed_info_in_pdf (const char infilename[20], const char *info, const char 
 	return TRUE;
 }
 
+//提取版权信息
 char *extract_info_in_pdf (const char *stegofile)
 {
 	FILE *fpStegofile;
@@ -333,6 +337,7 @@ void my_fputs (char *Buffer, FILE *fp)
 	fputc ('\n', fp);
 }
 
+//获取文件中的对象数目
 int getNumofObj (FILE *fp)
 {
 	char readline[4096];
@@ -362,6 +367,7 @@ int getNumofObj (FILE *fp)
 	}
 }
 
+//获取最后一个对象的偏移
 char *getOffset (char *readline, int value)
 {
 	char *pLineString = NULL;
@@ -420,12 +426,10 @@ void add_file_struct_info_to_file (const char *ercfile, Pdf_File_info pdf_file_i
 }
 
 //将16进制形式的字符串转换为unsigned char数组，例："6e7f"-->"\x6e\x7f"
-unsigned char*ConvertHardwareId(char *hex_string)
+void ConvertHardwareId(char *hex_string, unsigned char * hardware_id)
 {
-	unsigned char hardware_id[32];
 	char tmp_str[2];
 
-	memset (hardware_id, 0, 32);
 	//Test output
 	printf ("Test for Hardware ID convert:\n");
 	for (int i = 0; i < 32; i++)
@@ -436,7 +440,6 @@ unsigned char*ConvertHardwareId(char *hex_string)
 		//测试输出
 		printf ("%02X", hardware_id[i]);
 	}
-	return hardware_id;
 }
 
 /* 将大写字母转化成小写字母 */
@@ -451,7 +454,6 @@ int tolower (int c)
 		return c;
 	}
 }
-
 
 /* 将十六进制字符串转化成十进制整数 */
 int htoi (char *s)

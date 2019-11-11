@@ -3,39 +3,38 @@ d:\信息安全综合设计实验\项目测试\drm_system\drm_server\fileinfo.h(
 d:\信息安全综合设计实验\项目测试\drm_system\drm_server\fileinfo.h(20): warning C4091: “typedef ”: 没有声明变量时忽略“Rights_Claimed”的左侧
 d:\信息安全综合设计实验\项目测试\drm_system\drm_server\main.cpp(23): warning C4273: “tolower”: dll 链接不一致
   c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\ctype.h(62): note: 参见“tolower”的前一个定义
-d:\信息安全综合设计实验\项目测试\drm_system\drm_server\main.cpp(74): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\string.h(338): note: 参见“strncpy”的声明
 d:\信息安全综合设计实验\项目测试\drm_system\drm_server\main.cpp(75): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\string.h(338): note: 参见“strncpy”的声明
-d:\信息安全综合设计实验\项目测试\drm_system\drm_server\main.cpp(78): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+d:\信息安全综合设计实验\项目测试\drm_system\drm_server\main.cpp(76): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\string.h(338): note: 参见“strncpy”的声明
+d:\信息安全综合设计实验\项目测试\drm_system\drm_server\main.cpp(80): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\string.h(338): note: 参见“strncpy”的声明
 d:\信息安全综合设计实验\项目测试\drm_system\drm_server\main.cpp(31): warning C4101: “output”: 未引用的局部变量
 d:\信息安全综合设计实验\项目测试\drm_system\drm_server\main.cpp(32): warning C4101: “ctx”: 未引用的局部变量
-d:\信息安全综合设计实验\项目测试\drm_system\drm_server\main.cpp(105): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+d:\信息安全综合设计实验\项目测试\drm_system\drm_server\main.cpp(107): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\stdio.h(208): note: 参见“fopen”的声明
-d:\信息安全综合设计实验\项目测试\drm_system\drm_server\main.cpp(111): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+d:\信息安全综合设计实验\项目测试\drm_system\drm_server\main.cpp(113): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\stdio.h(208): note: 参见“fopen”的声明
-d:\信息安全综合设计实验\项目测试\drm_system\drm_server\main.cpp(97): warning C4101: “ch”: 未引用的局部变量
-d:\信息安全综合设计实验\项目测试\drm_system\drm_server\main.cpp(154): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+d:\信息安全综合设计实验\项目测试\drm_system\drm_server\main.cpp(99): warning C4101: “ch”: 未引用的局部变量
+d:\信息安全综合设计实验\项目测试\drm_system\drm_server\main.cpp(156): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\stdio.h(208): note: 参见“fopen”的声明
-d:\信息安全综合设计实验\项目测试\drm_system\drm_server\main.cpp(160): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+d:\信息安全综合设计实验\项目测试\drm_system\drm_server\main.cpp(162): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\stdio.h(208): note: 参见“fopen”的声明
-d:\信息安全综合设计实验\项目测试\drm_system\drm_server\main.cpp(146): warning C4101: “ch”: 未引用的局部变量
-d:\信息安全综合设计实验\项目测试\drm_system\drm_server\main.cpp(204): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+d:\信息安全综合设计实验\项目测试\drm_system\drm_server\main.cpp(148): warning C4101: “ch”: 未引用的局部变量
+d:\信息安全综合设计实验\项目测试\drm_system\drm_server\main.cpp(207): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\stdio.h(208): note: 参见“fopen”的声明
-d:\信息安全综合设计实验\项目测试\drm_system\drm_server\main.cpp(205): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+d:\信息安全综合设计实验\项目测试\drm_system\drm_server\main.cpp(208): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\stdio.h(208): note: 参见“fopen”的声明
-d:\信息安全综合设计实验\项目测试\drm_system\drm_server\main.cpp(212): warning C4996: 'itoa': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _itoa. See online help for details.
+d:\信息安全综合设计实验\项目测试\drm_system\drm_server\main.cpp(215): warning C4996: 'itoa': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _itoa. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\stdlib.h(1323): note: 参见“itoa”的声明
-d:\信息安全综合设计实验\项目测试\drm_system\drm_server\main.cpp(213): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+d:\信息安全综合设计实验\项目测试\drm_system\drm_server\main.cpp(216): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\string.h(90): note: 参见“strcat”的声明
-d:\信息安全综合设计实验\项目测试\drm_system\drm_server\main.cpp(267): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+d:\信息安全综合设计实验\项目测试\drm_system\drm_server\main.cpp(271): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\stdio.h(208): note: 参见“fopen”的声明
-d:\信息安全综合设计实验\项目测试\drm_system\drm_server\main.cpp(378): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+d:\信息安全综合设计实验\项目测试\drm_system\drm_server\main.cpp(384): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\stdio.h(1774): note: 参见“sprintf”的声明
-d:\信息安全综合设计实验\项目测试\drm_system\drm_server\main.cpp(400): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+d:\信息安全综合设计实验\项目测试\drm_system\drm_server\main.cpp(406): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\stdio.h(208): note: 参见“fopen”的声明
-d:\信息安全综合设计实验\项目测试\drm_system\drm_server\main.cpp(401): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+d:\信息安全综合设计实验\项目测试\drm_system\drm_server\main.cpp(407): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\stdio.h(208): note: 参见“fopen”的声明
-d:\信息安全综合设计实验\项目测试\drm_system\drm_server\main.cpp(439): warning C4172: 返回局部变量或临时变量的地址: hardware_id
   DRM_server.vcxproj -> D:\信息安全综合设计实验\项目测试\DRM_system\Debug\DRM_server.exe

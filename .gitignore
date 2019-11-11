@@ -1,6 +1,6 @@
-*.sln
-*.vcxproj
-*.filters
-*.user
 .vs
-DRM_system/Debug
+.vs
+Debug
+DRM_server/cpuid.txt
+DRM_system/cpuid.txt
+Debug/
